@@ -1,0 +1,22 @@
+{
+  "name": "bomblame",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Zack Winchell <zackwinchell@gmail.com> (http://www.zackwinchell.com/)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Gkjsdll/bomblame",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "^6.2.3",
+    "angular-ui-router": "^0.3.0",
+    "angular-ui-router-styles": "^1.1.0"
+  }
+}
