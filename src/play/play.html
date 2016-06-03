@@ -1,4 +1,12 @@
 <p>Function over form! – Viktor</p>
+<p>Players online: {{playerCount}}</p>
+<form ng-submit="sendMessage()">
+    <input type="text" placeholder="Send message to other players' consoles here" ng-model="testMessage">
+    <button class="button">Send</button>
+</form>
+
 <div id="gameBoard">
-  <div ng-repeat="(key, val) in squares track by $index" class="square"></div>
+  <div class="gameRow" ng-repeat="row in game.rows track by $index">
+    <div class="gameSquare" ng-repeat="column in game.columns track by $index"></div>
+  </div>
 </div>

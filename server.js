@@ -2,6 +2,12 @@ var express = require("express");
 
 var app = express();
 var http = require("http").Server(app);
+var io = require("socket.io")(http);
+
+var path = require("path");
+var socket = require(path.join(__dirname, "/routes/socket.js"));
+
+io.on("connection", socket);
 
 var chalk = require("chalk");
 

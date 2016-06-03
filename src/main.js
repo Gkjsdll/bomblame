@@ -1,4 +1,4 @@
-var app = angular.module("bomblame", ["ui.router", "uiRouterStyles"]);
+var app = angular.module("bomblame", ["btford.socket-io", "ui.router", "uiRouterStyles"]);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
@@ -12,4 +12,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     });
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise("/");
+});
+
+app.factory("socket", function(socketFactory) {
+  return socketFactory();
 });

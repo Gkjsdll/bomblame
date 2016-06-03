@@ -1,7 +1,22 @@
-angular.module("bomblame").controller("playCtrl", function($scope) {
-  let arr = []
-  for(let i = 0; i < 64; i++) {
-    arr.push(i);
-  }
-  $scope.squares = arr.slice(0);
+angular.module("bomblame").controller("playCtrl", function($scope, socket) {
+  $scope.testMessage = "";
+  $scope.playerCount = "Loading";
+  $scope.game = {
+    rows: new Array(8),
+    columns: new Array(8)
+  };
+
+  $scope.sendMessage = function() {
+    socket.emit("playerMessage", $scope.testMessage);
+    $scope.testMessage = "";
+  };
+
+  socket.on("serverMessage", function(msg) {
+    console.log(msg);
+  });
+
+  socket.on("playerCount", function(count) {
+    $scope.playerCount = count;
+    console.log(`Players online: ${count}`);
+  });
 });
